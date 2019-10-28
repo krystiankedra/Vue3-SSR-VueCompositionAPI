@@ -1,8 +1,15 @@
 <template>
   <v-content>
-    <v-text-field xs10 v-model="state.phrase" label="Search in users..." />
     <v-layout row wrap>
-      <v-flex xs6 v-for="({ id, name, lastname, age }, index) in filteredUsers" :key="index" class="pa-2">
+      <v-flex xs6 class="px-2">
+        <v-autocomplete v-model="state.sortBy" :items="['name', 'lastname']" label="Sorted by..." />
+      </v-flex>
+      <v-flex xs6 class="px-2">
+        <v-text-field xs10 v-model="state.phrase" label="Search in users..." />
+      </v-flex>
+    </v-layout>
+    <v-layout row wrap>
+      <v-flex xs6 v-for="({ id, name, lastname, age }, index) in usersByCriteria" :key="index" class="pa-2">
         <v-card>
           <v-card-title class="blue darken-4 white--text headline">
             <p>Name: {{ name }}</p>
@@ -27,7 +34,7 @@
 
 <script>
 import { computed, reactive } from '@vue/composition-api'
-import { filteredUsersByCondition } from '~/UsersManagement/usersManagement'
+import { filteredUsersByCondition, sortUsersByKey } from '~/UsersManagement/usersManagement'
 export default {
   props: {
     users: {
@@ -45,14 +52,17 @@ export default {
   },
   setup(initialProps, setupContext) {
     const state = reactive({
-      phrase: ''
+      phrase: '',
+      sortBy: 'name'
     })
 
-    const filteredUsers = computed(() => initialProps.users.filter(filteredUsersByCondition(state.phrase)))
+    const filteredUsers = () => initialProps.users.filter(filteredUsersByCondition(state.phrase))
+
+    const usersByCriteria = computed(() => filteredUsers().sort(sortUsersByKey(state.sortBy)))
 
     return {
       state,
-      filteredUsers
+      usersByCriteria
     }
   }
 }

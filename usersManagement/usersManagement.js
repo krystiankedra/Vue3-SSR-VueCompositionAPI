@@ -30,3 +30,6 @@ export const prepareUserObjectToSend = (defaultObject, newUserData) => {
   const assignedValueToKeyInUserObject = Object.entries(defaultObject).map(assignValueToKeyInUserObject(newUserData))
   return Object.fromEntries(assignedValueToKeyInUserObject)
 }
+
+export const sortUsersByKey = key => (prev, next) =>
+  prev[key].toLocaleLowerCase() > next[key].toLocaleLowerCase() ? 1 : -1

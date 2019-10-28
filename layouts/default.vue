@@ -3,6 +3,7 @@
     <v-container>
       <new-user :add-new-user="addNewUser" />
       <users-list
+        class="mt-3"
         :users="state.users"
         :delete-user="deleteUser"
         :change-user-age="changeUserAge"
