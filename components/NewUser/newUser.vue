@@ -17,13 +17,11 @@
                 />
               </template>
             </v-card-text>
-            <v-btn
-              type="submit"
-              @click="(e) => checkValidationForm(e)"
-              color="blue darken-4 white--text"
-            >
-              Save
-            </v-btn>
+            <button-handler
+              :handler="handlerToCheckValidaitonForm.handler"
+              :color="handlerToCheckValidaitonForm.color"
+              :label="handlerToCheckValidaitonForm.label"
+            />
           </v-card>
         </v-form>
       </v-expansion-panel-content>
@@ -32,9 +30,13 @@
 </template>
 
 <script>
-import { reactive, watch, ref, onMounted } from '@vue/composition-api'
+import { reactive, ref, computed } from '@vue/composition-api'
 import { defaultUserObject, prepareUserObjectToSend } from '~/UsersManagement/usersManagement'
+const buttonHandler = () => import('~/components/shared/ButtonHandler/buttonHandler')
 export default {
+  components: {
+    buttonHandler
+  },
   props: {
     addNewUser: {
       type: Function,
@@ -42,7 +44,6 @@ export default {
     }
   },
   setup(initialProps, setupContext) {
-
     const newUserFormRef = ref(null)
 
     const state = reactive({
@@ -52,6 +53,14 @@ export default {
         { value: '', label: 'New user lastname', key: 'lastname' },
         { value: '', label: 'New user age', key: 'age' }
       ]
+    })
+
+    const handlerToCheckValidaitonForm = computed(() => {
+      return {
+        handler: (e) => checkValidationForm(e),
+        label: 'Save',
+        color: 'blue darken-4 white--text'
+      }
     })
 
     const mandatoryRules = () => [v => !!v || 'Field in mandatory']
@@ -82,7 +91,8 @@ export default {
       newUserFormRef,
       state,
       checkValidationForm,
-      mandatoryRules
+      mandatoryRules,
+      handlerToCheckValidaitonForm
     }
   }
 }

@@ -1,48 +1,18 @@
 <template>
   <v-app>
-    <v-container>
-      <new-user :add-new-user="addNewUser" />
-      <users-list
-        class="mt-3"
-        :users="state.users"
-        :delete-user="deleteUser"
-        :change-user-age="changeUserAge"
-      />
-    </v-container>
+    <nuxt />
   </v-app>
 </template>
 
 <script>
-import { reactive, computed } from '@vue/composition-api'
-import { deleteUserFromList, changeUserAgeInList } from '~/UsersManagement/usersManagement'
-import usersList from '~/components/UsersList/usersList'
-import newUser from '~/components/NewUser/newUser'
+import { provideStore, useStore } from '~/helpers/useStore'
+import { SET_USERS } from '~/store/rootActionTypes'
+import { onMounted } from '@vue/composition-api'
 export default {
-  components: {
-    usersList,
-    newUser
-  },
-  setup(initialProps, setupContext) {
-    const state = reactive({
-      users: [
-        { id: 1, name: 'Krystian', lastname: 'Kędra', age: '24' },
-        { id: 2, name: 'Paweł', lastname: 'Nowak', age: '27' },
-        { id: 3, name: 'Mateusz', lastname: 'Jurasiek', age: '21' }
-      ]
-    })
-
-    const deleteUser = id => state.users = deleteUserFromList(state.users, id)
-
-    const changeUserAge = (value, id) => changeUserAgeInList(state.users, value, id)
-
-    const addNewUser = newUser => state.users = [...state.users, newUser]
-
-    return {
-      state,
-      deleteUser,
-      changeUserAge,
-      addNewUser
-    }
+  setup(initialProps, { root: { $store } }) {
+    provideStore($store)
+    const store = useStore()
+    onMounted(() => store.dispatch(SET_USERS))
   }
 }
 </script>

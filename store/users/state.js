@@ -1,3 +1,5 @@
-const state = () => ({})
+const state = () => ({
+  users: []
+})
 
 export default state
