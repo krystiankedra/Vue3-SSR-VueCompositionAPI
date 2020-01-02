@@ -8,17 +8,26 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "test": "jest"
   },
   "dependencies": {
-    "@nuxtjs/axios": "latest",
-    "@vue/composition-api": "latest",
-    "nuxt": "latest",
+    "@nuxtjs/axios": "^5.9.0",
+    "@vue/composition-api": "^0.3.4",
+    "nuxt": "^2.11.0",
     "vuetify": "^1.0.19"
   },
   "devDependencies": {
+    "@babel/core": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
+    "@vue/test-utils": "^1.0.0-beta.30",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^24.9.0",
     "cross-env": "^5.0.1",
+    "jest": "^24.9.0",
+    "jest-serializer-vue": "^2.0.2",
     "stylus": "^0.54.5",
-    "stylus-loader": "^3.0.1"
+    "stylus-loader": "^3.0.1",
+    "vue-jest": "^3.0.5"
   }
 }
