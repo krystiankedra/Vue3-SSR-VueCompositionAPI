@@ -1,4 +1,3 @@
-export const SET_USERS = 'setUsers'
-export const DELETE_USER = 'deleteUser'
-export const ADD_USER = 'addUser'
-export const CHANGE_USER_AGE = 'changeUserAge'
+// Lists
+export const SET_DATA_STATE = 'setDataState'
+export const FILTER_DATA_STATE_LIST_BY_PROPERTY_KEY = 'filterDataStateListByPropertyKey'

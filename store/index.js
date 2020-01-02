@@ -1,10 +1,10 @@
 import Vuex from 'vuex'
-import users from './users'
+import lists from './lists'
 
 const createStore = () => {
   return new Vuex.Store({
     modules: {
-      users
+      lists
     }
   })
 }

@@ -1,18 +1,25 @@
 <template>
   <v-app>
-    <nuxt />
+    <v-content>
+      <no-ssr>
+        <nuxt />
+      </no-ssr>
+      <bottom-navigation />
+    </v-content>
   </v-app>
 </template>
 
 <script>
-import { provideStore, useStore } from '~/helpers/useStore'
-import { SET_USERS } from '~/store/rootActionTypes'
-import { onMounted } from '@vue/composition-api'
+import { provideStore } from '~/helpers/useStore'
+
+const bottomNavigation = () => import('~/components/Presentations/BottomNavigation/bottomNavigation')
+
 export default {
+  components: {
+    bottomNavigation
+  },
   setup(initialProps, { root: { $store } }) {
     provideStore($store)
-    const store = useStore()
-    onMounted(() => store.dispatch(SET_USERS))
   }
 }
 </script>

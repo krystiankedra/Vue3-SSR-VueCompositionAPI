@@ -1,0 +1,110 @@
+<template>
+  <v-container>
+
+    <sort-filter-wrapper
+      :filter-items="filterItems"
+      :sort-items="sortItems"
+      :route-key="routeKey"
+    />
+
+    <v-layout mb-4>
+      <v-content>
+        <button-wrapper :options="{ handler: toggle, class: 'blue darken-4 white--text' }">
+          <template #btn-text>
+            Toggle
+          </template>
+        </button-wrapper>
+        <span>
+          {{ filteredListInformation }}
+        </span>
+      </v-content>
+    </v-layout>
+
+    <page-wrapper v-if="show" :items="sortedEmployees">
+      <template #page-header>
+        {{ pageWrapperTitle }}
+      </template>
+      <template #title-content="{ item: { firstname } }">
+        Firstname: {{ firstname }}
+      </template>
+      <template #dynamic-content="{ item: { lastname, hobbies } }">
+        <p>Lastname: {{ lastname }}</p>
+        <p>Hobbies: {{ hobbies.join() }}</p>
+      </template>
+      <template #delete-btn="{ item: { id } }">
+        <button-wrapper :options="{ handler: () => removeEmployeeFromList(id), class: 'red white--text' }">
+          <template #btn-text>
+            Remove
+          </template>
+        </button-wrapper>
+      </template>
+    </page-wrapper>
+
+  </v-container>
+</template>
+
+<script>
+import { useStore } from '~/helpers/useStore'
+import { computed, ref } from '@vue/composition-api'
+import { FILTER_DATA_STATE_LIST_BY_PROPERTY_KEY } from '~/store/rootMutationTypes'
+import { useToggle } from '~/components/Functionals/useToggle'
+import {
+  filterEmployees,
+  setFilterItemsFromEmployees,
+  sortEmployees,
+  setSortItemsFromEmployees,
+  setInformationAboutFilteredListState
+} from '~/management/EmployeesManagement/employeesManagement'
+
+const pageWrapper = () => import('~/components/Presentations/Wrappers/PageWrapper/pageWrapper')
+const sortFilterWrapper = () => import('~/components/Shared/SortFilterWrapper/sortFilterWrapper')
+const buttonWrapper = () => import('~/components/Shared/CustomButton/customButton')
+
+export default {
+  components: {
+    pageWrapper,
+    sortFilterWrapper,
+    buttonWrapper
+  },
+  setup(props, { root }) {
+    const store = useStore()
+    const routeKey = root.$route.name
+
+    const { show, toggle } = useToggle()
+
+    const filteredListInformation = computed(() => setInformationAboutFilteredListState(searchedPhrase.value, searchedValues.value))
+
+    const pageWrapperTitle = computed(() => store.getters.getListTitle(routeKey))
+    const employees = computed(() => store.getters.getList(routeKey))
+    const searchedPhrase = computed(() => store.getters.getSearchedPhrase(routeKey).value)
+    const searchedValues = computed(() => store.getters.getSearchedValues(routeKey).value)
+    const sortedValue = computed(() => store.getters.getSortedValue(routeKey).value)
+
+    const filterItems = computed(() => setFilterItemsFromEmployees([...employees.value]))
+    const sortItems = setSortItemsFromEmployees()
+
+    const filteredEmployees = computed(() => filterEmployees(employees.value, searchedPhrase.value, searchedValues.value))
+    const sortedEmployees = computed(() => sortEmployees(filteredEmployees.value, sortedValue.value))
+
+    const removeEmployeeFromList = id => store.commit(FILTER_DATA_STATE_LIST_BY_PROPERTY_KEY, {
+      subModule: 'list',
+      routeKey,
+      key: 'id',
+      value: id
+    })
+
+    return {
+      routeKey,
+      show,
+      toggle,
+      filterItems,
+      sortItems,
+      pageWrapperTitle,
+      sortedEmployees,
+      removeEmployeeFromList,
+      filteredListInformation
+    }
+
+  }
+}
+</script>
