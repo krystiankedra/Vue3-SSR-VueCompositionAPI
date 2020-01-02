@@ -1,5 +1,5 @@
 {
-  "name": "VueCompositionApi",
+  "name": "vue-composition-api",
   "version": "1.0.0",
   "description": "My project in Vuejs3 with Nuxt.js",
   "author": "Kedra, Krystian",
@@ -11,9 +11,9 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.0.0",
-    "@vue/composition-api": "^0.3.2",
-    "nuxt": "^1.0.0",
+    "@nuxtjs/axios": "latest",
+    "@vue/composition-api": "latest",
+    "nuxt": "latest",
     "vuetify": "^1.0.19"
   },
   "devDependencies": {
