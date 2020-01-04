@@ -17,7 +17,7 @@ describe('lists store module', () => {
     getters = store.getters
   })
 
-  test('mutation - setDataState - set a new value for the list submodule for the employee key and check if the object is contained in the list', () => {
+  it('mutation - setDataState - set a new value for the list submodule for the employee key and check if the object is contained in the list', () => {
     const payload = { submodule, routeKey, value: getMockEmployees() }
     store.commit(SET_DATA_STATE, payload)
     expect(state.list.employees.length).toBe(4)
@@ -27,7 +27,7 @@ describe('lists store module', () => {
     expect(isExistMockObjectInGettersList()).toBeTruthy()
   })
 
-  test('mutation - filterDataStateListByPropertyKey - set a new value for the list submodule for the employee key and check the filtered values ​​match the filtering criteria', () => {
+  it('mutation - filterDataStateListByPropertyKey - set a new value for the list submodule for the employee key and check the filtered values ​​match the filtering criteria', () => {
     const payload = { submodule, routeKey, value: getMockEmployees() }
     store.commit(SET_DATA_STATE, payload)
     expect(state.list.employees.length).toBe(4)
