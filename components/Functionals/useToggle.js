@@ -1,7 +1,7 @@
 import { ref } from '@vue/composition-api'
 
 export const useToggle = () => {
-  const show = ref(false)
+  const show = ref(true)
 
   const toggle = () => show.value = !show.value
 

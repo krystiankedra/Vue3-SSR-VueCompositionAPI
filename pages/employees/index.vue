@@ -56,7 +56,7 @@ import {
   setInformationAboutFilteredListState
 } from '~/management/EmployeesManagement/employeesManagement'
 
-const pageWrapper = () => import('~/components/Presentations/Wrappers/PageWrapper/pageWrapper')
+const pageWrapper = () => import('~/components/Presentionals/Wrappers/PageWrapper/pageWrapper')
 const sortFilterWrapper = () => import('~/components/Shared/SortFilterWrapper/sortFilterWrapper')
 const buttonWrapper = () => import('~/components/Shared/CustomButton/customButton')
 
@@ -87,7 +87,7 @@ export default {
     const sortedEmployees = computed(() => sortEmployees(filteredEmployees.value, sortedValue.value))
 
     const removeEmployeeFromList = id => store.commit(FILTER_DATA_STATE_LIST_BY_PROPERTY_KEY, {
-      subModule: 'list',
+      submodule: 'list',
       routeKey,
       key: 'id',
       value: id

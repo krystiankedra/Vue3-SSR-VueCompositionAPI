@@ -30,7 +30,7 @@
 
 <script>
 import { useStore } from '~/helpers/useStore'
-import { computed, ref } from '@vue/composition-api'
+import { computed } from '@vue/composition-api'
 import { FILTER_DATA_STATE_LIST_BY_PROPERTY_KEY } from '~/store/rootMutationTypes'
 import {
   setSortItemsFromEmployees,
@@ -39,7 +39,7 @@ import {
   sortProducts
 } from '~/management/ProductsManagement/productsManagement'
 
-const pageWrapper = () => import('~/components/Presentations/Wrappers/PageWrapper/pageWrapper')
+const pageWrapper = () => import('~/components/Presentionals/Wrappers/PageWrapper/pageWrapper')
 const buttonWrapper = () => import('~/components/Shared/CustomButton/customButton')
 const sortFilterWrapper = () => import('~/components/Shared/SortFilterWrapper/sortFilterWrapper')
 
@@ -66,7 +66,7 @@ export default {
     const sortedProducts = computed(() => sortProducts(filteredProducts.value, sortedValue.value))
 
     const removeProductFromList = id => store.commit(FILTER_DATA_STATE_LIST_BY_PROPERTY_KEY, {
-      subModule: 'list',
+      submodule: 'list',
       routeKey,
       key: 'id',
       value: id

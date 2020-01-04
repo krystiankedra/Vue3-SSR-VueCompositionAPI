@@ -53,7 +53,7 @@ export default {
           value
         }
       },
-      set: (value) => store.commit(SET_DATA_STATE, { subModule: 'searchedPhrase', routeKey, value })
+      set: (value) => store.commit(SET_DATA_STATE, { submodule: 'searchedPhrase', routeKey, value })
     })
 
     const searchedValues = computed({
@@ -67,7 +67,7 @@ export default {
           items: props.filterItems
         }
       },
-      set: (value) => store.commit(SET_DATA_STATE, { subModule: 'searchedValues', routeKey, value })
+      set: (value) => store.commit(SET_DATA_STATE, { submodule: 'searchedValues', routeKey, value })
     })
 
     const sortedValue = computed({
@@ -80,7 +80,7 @@ export default {
           items: props.sortItems
         }
       },
-      set: (value) => store.commit(SET_DATA_STATE, { subModule: 'sortedValue', routeKey, value })
+      set: (value) => store.commit(SET_DATA_STATE, { submodule: 'sortedValue', routeKey, value })
     })
 
     const isDisabledSortEmitter = computed(() => props.sortItems && props.sortItems.length <= 1)

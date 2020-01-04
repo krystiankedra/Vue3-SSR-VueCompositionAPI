@@ -1,9 +1,9 @@
 <template>
   <v-app>
     <v-content>
-      <no-ssr>
+      <client-only>
         <nuxt />
-      </no-ssr>
+      </client-only>
       <bottom-navigation />
     </v-content>
   </v-app>
@@ -12,7 +12,7 @@
 <script>
 import { provideStore } from '~/helpers/useStore'
 
-const bottomNavigation = () => import('~/components/Presentations/BottomNavigation/bottomNavigation')
+const bottomNavigation = () => import('~/components/Presentionals/BottomNavigation/bottomNavigation')
 
 export default {
   components: {

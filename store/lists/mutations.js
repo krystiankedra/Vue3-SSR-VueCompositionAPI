@@ -2,12 +2,12 @@ import { filterByNotEqualPropertyKey, filtersWrapper } from '~/commons/Filters/f
 
 export default {
   setDataState(state, payload) {
-    const { subModule, routeKey, value } = payload
-    state[subModule][routeKey].value = value
+    const { submodule, routeKey, value } = payload
+    state[submodule][routeKey].value = value
   },
   filterDataStateListByPropertyKey(state, payload) {
-    const { subModule, routeKey, key, value } = payload
+    const { submodule, routeKey, key, value } = payload
     const filters = filtersWrapper(filterByNotEqualPropertyKey(key, value))
-    state[subModule][routeKey] = state[subModule][routeKey].filter(filters)
+    state[submodule][routeKey] = state[submodule][routeKey].filter(filters)
   }
 }
