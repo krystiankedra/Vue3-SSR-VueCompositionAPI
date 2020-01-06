@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from '~/helpers/useAxios'
 
 const getPhotos = () => axios.get('https://jsonplaceholder.typicode.com/photos')
 const getComments = () => axios.get('https://jsonplaceholder.typicode.com/comments')
