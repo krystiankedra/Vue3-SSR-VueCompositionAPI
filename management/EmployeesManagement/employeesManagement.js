@@ -1,5 +1,5 @@
 import { filterByPropertyKey, filterByExtendedFlatArraySome, filtersWrapper } from '~/commons/Filters/filters'
-import { sortByKey } from '~/commons/Sortings/sortings'
+import { sortByPropertyKey } from '~/commons/Sortings/sortings'
 
 export const setInformationAboutFilteredListState = (phrase, values) =>
   (phrase || values).length > 0 ? 'List is filtered' : 'List is not filtered'
@@ -18,8 +18,8 @@ export const filterEmployees = (array, searchedPhrase, searchedValues) => {
     filterByPropertyKey(firstnameKey, searchedPhrase),
     filterByExtendedFlatArraySome(hobbiesKey, searchedValues)
   )
-  return array.filter(filters)
+  return !!array ? array.filter(filters) : array
 }
 
 export const sortEmployees = (array, sortedValue) =>
-  [...array].sort((prev, next) => sortByKey(prev, next, sortedValue))
+  !!array ? [...array].sort((prev, next) => sortByPropertyKey(prev, next, sortedValue)) : array

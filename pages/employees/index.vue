@@ -45,9 +45,11 @@
 
 <script>
 import { useStore } from '~/helpers/useStore'
-import { computed, ref } from '@vue/composition-api'
+import { computed, ref, onMounted } from '@vue/composition-api'
 import { FILTER_DATA_STATE_LIST_BY_PROPERTY_KEY } from '~/store/rootMutationTypes'
+import { SET_DATA_STATE_FROM_API } from '~/store/rootActionTypes'
 import { useToggle } from '~/components/Functionals/useToggle'
+import { getMockEmployees } from '~/test/mocks/employees'
 import {
   filterEmployees,
   setFilterItemsFromEmployees,
@@ -74,8 +76,8 @@ export default {
 
     const filteredListInformation = computed(() => setInformationAboutFilteredListState(searchedPhrase.value, searchedValues.value))
 
-    const pageWrapperTitle = computed(() => store.getters.getListTitle(routeKey))
-    const employees = computed(() => store.getters.getList(routeKey))
+    const pageWrapperTitle = computed(() => store.getters.getListTitle(routeKey).value)
+    const employees = computed(() => store.getters.getList(routeKey).value)
     const searchedPhrase = computed(() => store.getters.getSearchedPhrase(routeKey).value)
     const searchedValues = computed(() => store.getters.getSearchedValues(routeKey).value)
     const sortedValue = computed(() => store.getters.getSortedValue(routeKey).value)
@@ -91,6 +93,12 @@ export default {
       routeKey,
       key: 'id',
       value: id
+    })
+
+    onMounted(async () => {
+      await Promise.all([
+        store.dispatch(SET_DATA_STATE_FROM_API, { submodule: 'list', routeKey, callback: () => getMockEmployees() })
+      ])
     })
 
     return {

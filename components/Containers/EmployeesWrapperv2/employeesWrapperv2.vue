@@ -22,7 +22,7 @@ export default {
     const store = useStore()
     const routeKey = root.$route.name
 
-    const employees = computed(() => store.getters.getList(routeKey))
+    const employees = computed(() => store.getters.getList(routeKey).value)
     const searchedPhrase = computed(() => store.getters.getSearchedPhrase(routeKey).value)
     const searchedValues = computed(() => store.getters.getSearchedValues(routeKey).value)
     const sortedValue = computed(() => store.getters.getSortedValue(routeKey).value)

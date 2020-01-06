@@ -1,1 +1,1 @@
-export const sortByKey = (prev, next, key) => prev[key].toLocaleLowerCase() > next[key].toLocaleLowerCase() ? 1 : -1
+export const sortByPropertyKey = (prev, next, key) => prev[key].toLocaleLowerCase() > next[key].toLocaleLowerCase() ? 1 : -1

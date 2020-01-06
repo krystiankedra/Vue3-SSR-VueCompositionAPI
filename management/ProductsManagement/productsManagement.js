@@ -1,9 +1,9 @@
 import { filterByPropertyKey, filtersWrapper } from '~/commons/Filters/filters'
-import { sortByKey } from '~/commons/Sortings/sortings'
+import { sortByPropertyKey } from '~/commons/Sortings/sortings'
 
 export const setFilterItemsFromProducts = () => ['Rooms', 'items']
 
-export const setSortItemsFromEmployees = () => ['name']
+export const setSortItemsFromProducts = () => ['name']
 
 export const filterProducts = (array, searchedPhrase, searchedValues) => {
   const nameKey = 'name'
@@ -12,8 +12,8 @@ export const filterProducts = (array, searchedPhrase, searchedValues) => {
     filterByPropertyKey(nameKey, searchedPhrase),
     filterByPropertyKey(categoryKey, searchedValues)
   )
-  return array.filter(filters)
+  return !!array ? array.filter(filters) : array
 }
 
 export const sortProducts = (array, sortedValue) =>
-  [...array].sort((prev, next) => sortByKey(prev, next, sortedValue))
+  !!array ? [...array].sort((prev, next) => sortByPropertyKey(prev, next, sortedValue)) : array

@@ -1,10 +1,8 @@
 import { filtersWrapper, filterByPropertyKey, filterByExtendedFlatArraySome } from '~/commons/Filters/filters'
+import { getMockEmployees, getMockEmployee } from '~/test/mocks/employees'
 
 describe('filtersWrapper', () => {
-  const factory = () => [
-    { firstname: 'Krystian', age: 25, hobbies: ['IT'] },
-    { firstname: 'Dawid', age: 27, hobbies: ['IT2'] }
-  ]
+  const factory = () => getMockEmployees()
 
   it('without functions has not side effects', () => {
     const filters = filtersWrapper()
@@ -13,22 +11,24 @@ describe('filtersWrapper', () => {
   })
 
   it('with multiple filterByPropertyKey functions', () => {
+    const { firstname, lastname } = getMockEmployee()
     const filters = filtersWrapper(
-      filterByPropertyKey('firstname', 'krystian'),
-      filterByPropertyKey('age', '30')
+      filterByPropertyKey('firstname', firstname),
+      filterByPropertyKey('lastname', lastname)
     )
     const result = factory().filter(filters)
-    expect(result.length).toBe(0)
+    expect(result.length).toBe(1)
   })
 
   it('with multiple functions', () => {
+    const { firstname, lastname, hobbies } = getMockEmployee()
     const filters = filtersWrapper(
-      filterByPropertyKey('firstname', 'Krystian'),
-      filterByExtendedFlatArraySome('hobbies', ['IT']),
-      filterByPropertyKey('age', '25')
+      filterByPropertyKey('firstname', firstname),
+      filterByExtendedFlatArraySome('hobbies', hobbies),
+      filterByPropertyKey('lastname', lastname)
     )
     const result = factory().filter(filters)
-    const correctResult = result.find(x => x.firstname === 'Krystian').hobbies.includes('IT')
+    const correctResult = result.find(x => x.firstname === firstname).hobbies.includes(hobbies[0])
     expect(result.length).toBe(1)
     expect(correctResult).toBeTruthy()
   })

@@ -30,10 +30,12 @@
 
 <script>
 import { useStore } from '~/helpers/useStore'
-import { computed } from '@vue/composition-api'
+import { computed, onMounted } from '@vue/composition-api'
 import { FILTER_DATA_STATE_LIST_BY_PROPERTY_KEY } from '~/store/rootMutationTypes'
+import { SET_DATA_STATE_FROM_API } from '~/store/rootActionTypes'
+import { getMockProducts } from '~/test/mocks/products'
 import {
-  setSortItemsFromEmployees,
+  setSortItemsFromProducts,
   setFilterItemsFromProducts,
   filterProducts,
   sortProducts
@@ -53,11 +55,11 @@ export default {
     const store = useStore()
     const routeKey = root.$route.name
 
-    const sortItems = setSortItemsFromEmployees()
+    const sortItems = setSortItemsFromProducts()
     const filterItems = setFilterItemsFromProducts()
 
-    const pageWrapperTitle = computed(() => store.getters.getListTitle(routeKey))
-    const products = computed(() => store.getters.getList(routeKey))
+    const pageWrapperTitle = computed(() => store.getters.getListTitle(routeKey).value)
+    const products = computed(() => store.getters.getList(routeKey).value)
     const searchedPhrase = computed(() => store.getters.getSearchedPhrase(routeKey).value)
     const searchedValues = computed(() => store.getters.getSearchedValues(routeKey).value)
     const sortedValue = computed(() => store.getters.getSortedValue(routeKey).value)
@@ -70,6 +72,12 @@ export default {
       routeKey,
       key: 'id',
       value: id
+    })
+
+    onMounted(async () => {
+      await Promise.all([
+        store.dispatch(SET_DATA_STATE_FROM_API, { submodule: 'list', routeKey, callback: () => getMockProducts() })
+      ])
     })
 
     return {
