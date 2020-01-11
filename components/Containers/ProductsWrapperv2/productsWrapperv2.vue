@@ -12,7 +12,7 @@ import { computed } from '@vue/composition-api'
 import { FILTER_DATA_STATE_LIST_BY_PROPERTY_KEY } from '~/store/rootMutationTypes'
 import { filterProducts, sortProducts } from '~/management/ProductsManagement/productsManagement'
 
-const productv2 = () => import('~/components/Containers/ProductsWrapperv2/Productv2/productv2')
+import { productv2 } from '~/management/LazyLoadingComponentsManagement/lazyLoadingComponentsManagement'
 
 export default {
   components: {

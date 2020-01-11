@@ -20,7 +20,7 @@
       </v-content>
     </v-layout>
 
-    <page-wrapper v-if="show" :items="sortedEmployees">
+    <async-page-wrapper v-if="show" :items="sortedEmployees">
       <template #page-header>
         {{ pageWrapperTitle }}
       </template>
@@ -38,7 +38,7 @@
           </template>
         </button-wrapper>
       </template>
-    </page-wrapper>
+    </async-page-wrapper>
 
   </v-container>
 </template>
@@ -58,13 +58,12 @@ import {
   setInformationAboutFilteredListState
 } from '~/management/EmployeesManagement/employeesManagement'
 
-const pageWrapper = () => import('~/components/Presentionals/Wrappers/PageWrapper/pageWrapper')
-const sortFilterWrapper = () => import('~/components/Shared/SortFilterWrapper/sortFilterWrapper')
-const buttonWrapper = () => import('~/components/Shared/CustomButton/customButton')
+import { asyncPageWrapper } from '~/management/AsyncComponentManagement/asyncComponents'
+import { sortFilterWrapper, buttonWrapper } from '~/management/LazyLoadingComponentsManagement/lazyLoadingComponentsManagement'
 
 export default {
   components: {
-    pageWrapper,
+    asyncPageWrapper,
     sortFilterWrapper,
     buttonWrapper
   },

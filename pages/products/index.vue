@@ -7,7 +7,7 @@
       :route-key="routeKey"
     />
 
-    <page-wrapper :items="sortedProducts">
+    <async-page-wrapper :items="sortedProducts">
       <template #page-header>
         {{ pageWrapperTitle }}
       </template>
@@ -24,7 +24,7 @@
           </template>
         </button-wrapper>
       </template>
-    </page-wrapper>
+    </async-page-wrapper>
   </v-container>
 </template>
 
@@ -41,13 +41,12 @@ import {
   sortProducts
 } from '~/management/ProductsManagement/productsManagement'
 
-const pageWrapper = () => import('~/components/Presentionals/Wrappers/PageWrapper/pageWrapper')
-const buttonWrapper = () => import('~/components/Shared/CustomButton/customButton')
-const sortFilterWrapper = () => import('~/components/Shared/SortFilterWrapper/sortFilterWrapper')
+import { asyncPageWrapper } from '~/management/AsyncComponentManagement/asyncComponents'
+import { sortFilterWrapper, buttonWrapper } from '~/management/LazyLoadingComponentsManagement/lazyLoadingComponentsManagement'
 
 export default {
   components: {
-    pageWrapper,
+    asyncPageWrapper,
     buttonWrapper,
     sortFilterWrapper
   },

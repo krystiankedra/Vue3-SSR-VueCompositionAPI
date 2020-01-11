@@ -17,8 +17,7 @@ import { useStore } from '~/helpers/useStore'
 import { computed } from '@vue/composition-api'
 import { SET_DATA_STATE } from '~/store/rootMutationTypes'
 
-const inputEmitter = () => import('~/components/Shared/Emitters/InputEmitter/inputEmitter')
-const dropDownEmitter = () => import('~/components/Shared/Emitters/DropDownEmitter/dropDownEmitter')
+import { inputEmitter, dropDownEmitter } from '~/management/LazyLoadingComponentsManagement/lazyLoadingComponentsManagement'
 
 export default {
   components: {

@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <page-wrapperv2>
+    <async-page-wrapperv2>
       <template #sort-filter-wrapper>
         <sort-filter-wrapper
           :filter-items="filterItems"
@@ -14,7 +14,7 @@
       <template #container>
         <products-wrapperv2 />
       </template>
-    </page-wrapperv2>
+    </async-page-wrapperv2>
   </v-container>
 </template>
 
@@ -25,13 +25,12 @@ import { SET_DATA_STATE_FROM_API } from '~/store/rootActionTypes'
 import { getMockProducts } from '~/test/mocks/products'
 import { setSortItemsFromProducts, setFilterItemsFromProducts } from '~/management/ProductsManagement/productsManagement'
 
-const pageWrapperv2 = () => import('~/components/Presentionals/Wrappers/PageWrapperv2/pageWrapperv2')
-const productsWrapperv2 = () => import('~/components/Containers/ProductsWrapperv2/productsWrapperv2')
-const sortFilterWrapper = () => import('~/components/Shared/SortFilterWrapper/sortFilterWrapper')
+import { asyncPageWrapperv2 } from '~/management/AsyncComponentManagement/asyncComponents'
+import { sortFilterWrapper, productsWrapperv2 } from '~/management/LazyLoadingComponentsManagement/lazyLoadingComponentsManagement'
 
 export default {
   components: {
-    pageWrapperv2,
+    asyncPageWrapperv2,
     productsWrapperv2,
     sortFilterWrapper
   },

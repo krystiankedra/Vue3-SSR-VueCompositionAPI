@@ -18,7 +18,7 @@
 </template>
 
 <script>
-const buttonWrapper = () => import('~/components/Shared/CustomButton/customButton')
+import { buttonWrapper } from '~/management/LazyLoadingComponentsManagement/lazyLoadingComponentsManagement'
 
 export default {
   components: {

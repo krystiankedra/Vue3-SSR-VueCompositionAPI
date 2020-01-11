@@ -12,7 +12,7 @@ import { computed } from '@vue/composition-api'
 import { FILTER_DATA_STATE_LIST_BY_PROPERTY_KEY } from '~/store/rootMutationTypes'
 import { filterEmployees, sortEmployees } from '~/management/EmployeesManagement/employeesManagement'
 
-const employeev2 = () => import('~/components/Containers/EmployeesWrapperv2/Employeev2/employeev2')
+import { employeev2 } from '~/management/LazyLoadingComponentsManagement/lazyLoadingComponentsManagement'
 
 export default {
   components: {
