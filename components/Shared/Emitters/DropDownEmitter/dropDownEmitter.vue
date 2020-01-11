@@ -3,9 +3,11 @@
     v-model="updatedValue"
     :items="item.items"
     :label="item.label"
+    item-text="value"
     :placeholder="item.placeholder"
     :multiple="item.isMultiple"
     :disabled="isDisabled"
+    return-object
     chips
   />
 </template>
