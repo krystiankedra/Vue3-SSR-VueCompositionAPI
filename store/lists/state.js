@@ -6,18 +6,10 @@ const state = () => ({
     productsv2: { value: 'List of Products' }
   },
   list: {
-    employees: {
-      value: []
-    },
-    employeesv2: {
-      value: []
-    },
-    products: {
-      value: []
-    },
-    productsv2: {
-      value: []
-    }
+    employees: { value: [] },
+    employeesv2: { value: [] },
+    products: { value: [] },
+    productsv2: { value: [] }
   },
   searchedPhrase: {
     employees: { value: '', label: 'Serach by firstname', placeholder: 'Type...' },
