@@ -23,3 +23,9 @@ export default {
   }
 }
 </script>
+
+<style>
+.not-dropdown-wrapper-padding-top {
+  padding-top: 18px !important;
+}
+</style>
