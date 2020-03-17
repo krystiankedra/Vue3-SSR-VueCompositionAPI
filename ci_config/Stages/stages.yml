@@ -1,0 +1,7 @@
+stages:
+  - build
+  - test
+  - deploy staging
+  - test deploy staging
+  - deploy production
+  - test deploy production

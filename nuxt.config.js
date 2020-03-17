@@ -1,60 +1,50 @@
-const pkg = require('./package')
+import nuxti18nConfig from './modules/nuxt-i18n/nuxt-i18n-config'
 
-const nodeExternals = require('webpack-node-externals')
-
-module.exports = {
+export default {
   mode: 'universal',
-
   /*
   ** Headers of the page
   */
   head: {
-    title: pkg.name,
+    title: process.env.npm_package_name || '',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: pkg.description }
+      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#FFFFFF' },
-
+  loading: { color: '#fff' },
   /*
   ** Global CSS
   */
   css: [
-    'vuetify/src/stylus/main.styl'
   ],
-
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '~/plugins/VueCompositionApi',
-    '@/plugins/vuetify'
+    '@plugins/vuetify.client',
+    '@plugins/axios.client',
+    '@plugins/compositionApi.client'
   ],
-
+  /*
+  ** Nuxt.js dev-modules
+  */
+  buildModules: [
+  ],
   /*
   ** Nuxt.js modules
   */
   modules: [
-    // Doc: https://github.com/nuxt-community/axios-module#usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    nuxti18nConfig()
   ],
-  /*
-  ** Axios module configuration
-  */
-  axios: {
-    // See https://github.com/nuxt-community/axios-module#options
-  },
-
   /*
   ** Build configuration
   */
@@ -62,14 +52,16 @@ module.exports = {
     /*
     ** You can extend webpack config here
     */
-    extend(config, ctx) {
-      if (ctx.isServer) {
-        config.externals = [
-          nodeExternals({
-            whitelist: [/^vuetify/]
-          })
-        ]
-      }
+    extend (config, ctx) {
     }
+  },
+
+  generate: {
+    dir: 'public'
+  },
+
+  env: {
+    baseURL: 'https://jsonplaceholder.typicode.com/'
   }
+
 }

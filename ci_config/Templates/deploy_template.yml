@@ -1,0 +1,8 @@
+.deploy_template:
+  image: node
+  script:
+    - npm install --global surge
+    - surge --project ./public --domain $DOMAIN
+  environment:
+    url: http://$DOMAIN
+    name: $ENV_NAME

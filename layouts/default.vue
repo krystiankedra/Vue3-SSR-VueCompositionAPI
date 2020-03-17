@@ -1,31 +1,34 @@
 <template>
-  <v-app>
-    <v-content>
-      <client-only>
-        <nuxt />
-      </client-only>
-      <bottom-navigation />
-    </v-content>
-  </v-app>
+  <client-only>
+    <v-app>
+      <navigation-wrapper />
+      <v-content>
+        <v-container fluid>
+          <axios-information-wrapper />
+          <application-management-wrapper />
+          <nuxt />
+        </v-container>
+      </v-content>
+    </v-app>
+  </client-only>
 </template>
 
 <script>
-import { provideStore } from '~/helpers/useStore'
-
-const bottomNavigation = () => import('~/components/Presentionals/BottomNavigation/bottomNavigation')
+import {
+  applicationManagementWrapper,
+  axiosInformationWrapper,
+  navigationWrapper
+} from '~/commons/Components/LazyLoadingComponents/lazyLoadingComponents'
+import { provideStore } from '~/commons/CompositionApi/compositionApi'
 
 export default {
   components: {
-    bottomNavigation
+    applicationManagementWrapper,
+    axiosInformationWrapper,
+    navigationWrapper
   },
-  setup(initialProps, { root: { $store } }) {
+  setup(_, { root: { $store } }) {
     provideStore($store)
   }
 }
 </script>
-
-<style>
-.not-dropdown-wrapper-padding-top {
-  padding-top: 18px !important;
-}
-</style>

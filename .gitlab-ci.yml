@@ -1,0 +1,69 @@
+include:
+  - ci_config/Stages/stages.yml
+  - ci_config/Variables/variables.yml
+  - ci_config/Templates/build_template.yml
+  - ci_config/Templates/deploy_template.yml
+  - ci_config/Templates/test_deploy_template.yml
+
+build:
+  extends: .build_template
+  stage: build
+  artifacts:
+    paths:
+      - ./public
+    expire_in: 1 week
+
+test artifacts:
+  stage: test
+  image: alpine
+  script:
+    - grep -q $PROJECT_TITLE ./public/index.html
+
+test build server side render:
+  extends: .build_template
+  stage: test
+  only:
+    - master
+    - develop
+  after_script:
+    - npm run dev &
+    - sleep 3
+    - curl "http://localhost:3000" | grep -q data-server-rendered="true"
+
+deploy staging:
+  extends: .deploy_template
+  stage: deploy staging
+  variables:
+    DOMAIN: $STAGING_DOMAIN
+    ENV_NAME: $STAGING_ENV_NAME
+  only:
+    - master
+    - develop
+
+test deploy staging:
+  extends: .test_deploy_template
+  stage: test deploy staging
+  variables:
+    DOMAIN: $STAGING_DOMAIN
+    SEARCHED_PHRASE: $PROJECT_TITLE
+  only:
+    - master
+    - develop
+
+deploy production:
+  extends: .deploy_template
+  stage: deploy production
+  variables:
+    DOMAIN: $PRODUCTION_DOMAIN
+    ENV_NAME: $PRODUCTION_ENV_NAME
+  only:
+    - master
+
+test deploy production:
+  extends: .test_deploy_template
+  stage: test deploy production
+  variables:
+    DOMAIN: $PRODUCTION_DOMAIN
+    SEARCHED_PHRASE: $PROJECT_TITLE
+  only:
+    - master

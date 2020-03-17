@@ -1,12 +1,17 @@
+import Vue from 'vue'
 import Vuex from 'vuex'
-import lists from './lists'
-import forms from './forms'
+import auth from './auth'
+import errors from './errors'
+import posts from './posts'
+
+Vue.use(Vuex)
 
 const createStore = () => {
   return new Vuex.Store({
     modules: {
-      lists,
-      forms
+      auth,
+      errors,
+      posts
     }
   })
 }

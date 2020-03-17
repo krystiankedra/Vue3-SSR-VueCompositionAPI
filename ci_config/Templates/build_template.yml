@@ -1,0 +1,5 @@
+.build_template:
+  image: node
+  script:
+    - npm install
+    - npm run generate

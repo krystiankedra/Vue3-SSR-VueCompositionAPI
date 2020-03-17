@@ -1,0 +1,6 @@
+variables:
+  STAGING_DOMAIN: vuedynamiccolorandlanguagechanger-staging.surge.sh
+  STAGING_ENV_NAME: staging
+  PRODUCTION_DOMAIN: vuedynamiccolorandlanguagechanger.surge.sh
+  PRODUCTION_ENV_NAME: production
+  PROJECT_TITLE: vuejs-dynamic-color-layout-changer-on-the-application-for-wcag

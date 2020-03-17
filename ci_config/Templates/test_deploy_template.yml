@@ -1,0 +1,4 @@
+.test_deploy_template:
+  image: node
+  script:
+    - curl http://$DOMAIN | grep -q $SEARCHED_PHRASE
