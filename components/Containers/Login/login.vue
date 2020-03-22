@@ -13,7 +13,7 @@
           </span>
         </v-row>
         <v-row class="pt-2">
-          <v-btn @click="login" class="primary-button-background primary-button-text-on-background--text">
+          <v-btn @click="login" :name="$t(logTypeBtn)" class="primary-button-background primary-button-text-on-background--text">
             {{ $t(logTypeBtn) }}
           </v-btn>
         </v-row>

@@ -1,7 +1,7 @@
 {
-  "name": "vuejs3-vue-composition-api-dynamic-color-layout-changer-on-the-application-for-wcag",
+  "name": "pwa-vue3-vue-composition-api",
   "version": "1.0.0",
-  "description": "vuejs3-vue-composition-api",
+  "description": "Progressive Web App Vue3 VueCompositionAPI",
   "author": "KrystianKedra",
   "private": true,
   "scripts": {

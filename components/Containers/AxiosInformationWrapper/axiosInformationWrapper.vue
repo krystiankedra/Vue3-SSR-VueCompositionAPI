@@ -5,6 +5,7 @@
       color="primary-snackbar-text"
       text
       @click="clearError"
+      :name="$t('otherWords.close')"
     >
       {{ $t('otherWords.close') }}
     </v-btn>
