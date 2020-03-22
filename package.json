@@ -20,7 +20,5 @@
     "url-loader": "^3.0.0",
     "vuetify": "^2.2.4"
   },
-  "devDependencies": {
-    "babel-core": "^7.0.0-bridge.0"
-  }
+  "devDependencies": {}
 }
