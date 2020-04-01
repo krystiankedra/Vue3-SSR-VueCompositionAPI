@@ -8,6 +8,7 @@ export default ({ $axios, store }, inject) => {
       'Content-Type': 'application/json'
     }
   })
+
   api.onError((error) => {
     const correctErrorType = error.response || error.request
     if (correctErrorType) {

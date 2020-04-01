@@ -1,13 +1,16 @@
 export default {
   navigationWords: {
     homepage: 'Homepage',
-    posts: 'List of posts'
+    posts: 'List of posts',
+    todos: 'List of todos'
   },
   errorWords: {
     errorNoDetected: 'Error no detected',
     errorOnApiCall: 'Error on api call',
   },
   otherWords: {
+    yes: 'Yes',
+    no: 'No',
     logout: 'Logout',
     loginCardHeaderText: 'Login to Application',
     login: 'Login',
@@ -44,6 +47,13 @@ export default {
           name: 'Company name'
         }
       }
+    }
+  },
+  todos: {
+    pageTitle: 'List of Todos',
+    todo: {
+      title: 'Title',
+      completed: 'Completed?'
     }
   }
 }

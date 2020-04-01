@@ -35,7 +35,8 @@ export default {
 
     const routes = computed(() => ([
       { name: 'navigationWords.homepage', to: '/', icon: 'mdi-home' },
-      { name: 'navigationWords.posts', to: '/posts', icon: 'mdi-widgets' }
+      { name: 'navigationWords.posts', to: '/posts', icon: 'mdi-widgets' },
+      { name: 'navigationWords.todos', to: '/todos', icon: 'mdi-dropbox' }
     ]))
 
     return {

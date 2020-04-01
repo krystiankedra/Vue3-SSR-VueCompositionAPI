@@ -1,13 +1,16 @@
 export default {
   navigationWords: {
     homepage: 'Strona główna',
-    posts: 'Lista postów'
+    posts: 'Lista postów',
+    todos: 'List Zadań'
   },
   errorWords: {
     errorNoDetected: 'Nie zidentyfikowano błędu',
     errorOnApiCall: 'Błąd podczas połączenia z serwerem',
   },
   otherWords: {
+    yes: 'Tak',
+    no: 'Nie',
     logout: 'Wyloguj',
     loginCardHeaderText: 'Logowanie do aplikacji',
     login: 'Zaloguj',
@@ -44,6 +47,13 @@ export default {
           name: 'Nazwa firmy'
         }
       }
+    }
+  },
+  todos: {
+    pageTitle: 'Lista zadań',
+    todo: {
+      title: 'Tytuł',
+      completed: 'Ukończono?'
     }
   }
 }

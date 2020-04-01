@@ -35,10 +35,10 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '@plugins/axios',
+    '@plugins/compositionApi.client',
     '@plugins/swRegister.client',
-    '@plugins/vuetify.client',
-    '@plugins/axios.client',
-    '@plugins/compositionApi.client'
+    '@plugins/vuetify.client'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -69,6 +69,10 @@ export default {
 
   env: {
     baseURL: 'https://jsonplaceholder.typicode.com/'
-  }
+  },
+
+  serverMiddleware: [
+    { path: '/posts', handler: '~/commons/ServerMiddleware/Posts/posts.js' }
+  ]
 
 }

@@ -10,6 +10,8 @@ export const vuetifyThemes = () => import('~/components/Containers/ApplicationMa
 export const axiosInformationWrapper = () => import('~/components/Containers/AxiosInformationWrapper/axiosInformationWrapper')
 export const navigationWrapper = () => import('~/components/Containers/NavigationWrapper/navigationWrapper')
 export const login = () => import('~/components/Containers/Login/login')
+export const todosWrapper = () => import('~/components/Containers/TodosWrapper/todosWrapper')
+export const todo = () => import('~/components/Containers/TodosWrapper/Todo/todo')
 
 // Presentionals
 export const cardWrapper = () => import('~/components/Presentionals/CardWrapper/cardWrapper')

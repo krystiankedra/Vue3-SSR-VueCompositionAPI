@@ -2,13 +2,13 @@
   <page-wrapper>
     <template #page-title>
       <span class="headline primary-card-header-text--text">
-        {{ $t('posts.pageTitle') }}
+        {{ $t('todos.pageTitle') }}
       </span>
     </template>
     <template #page-content>
       <v-layout row wrap>
-        <v-flex v-for="(post, idx) in posts" :key="idx" xs12 md6 d-flex px-3 py-2>
-          <post :post="post" />
+        <v-flex v-for="(todo, idx) in todos" :key="idx" d-flex px-3 py-2 xs12 md6>
+          <todo :todo="todo" />
         </v-flex>
       </v-layout>
     </template>
@@ -16,14 +16,15 @@
 </template>
 
 <script>
-import { pageWrapper, post } from '~/commons/Components/LazyLoadingComponents/lazyLoadingComponents'
+import { pageWrapper, todo } from '~/commons/Components/LazyLoadingComponents/lazyLoadingComponents'
+
 export default {
   components: {
     pageWrapper,
-    post
+    todo
   },
   props: {
-    posts: {
+    todos: {
       type: Array,
       default: () => []
     }

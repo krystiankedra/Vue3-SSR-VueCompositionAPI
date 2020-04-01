@@ -1,6 +1,6 @@
-# Progressive Web App Vue3_VueCompositionAPI
+# Progressive Web App + SSR + Vue3_VueCompositionAPI
 
-# Application uses Vue3/Nuxtjs/VueCompositionAPI/ServiceWorker.
+# Application uses Vue3, Nuxtjs, Server Side Rendering, VueCompositionAPI, ServiceWorker.
 
 # Progressive Web App. The application works offline.
 
