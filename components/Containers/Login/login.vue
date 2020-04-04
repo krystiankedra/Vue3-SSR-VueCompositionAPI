@@ -13,7 +13,7 @@
           </span>
         </v-row>
         <v-row class="pt-2">
-          <v-btn @click="login" :name="$t(logTypeBtn)" class="primary-button-background primary-button-text-on-background--text">
+          <v-btn @click="logType" :name="$t(logTypeBtn)" class="primary-button-background primary-button-text-on-background--text">
             {{ $t(logTypeBtn) }}
           </v-btn>
         </v-row>
@@ -23,10 +23,11 @@
 </template>
 
 <script>
-import { useStore } from '~/commons/CompositionApi/compositionApi'
-import { cardWrapper } from '~/commons/Components/LazyLoadingComponents/lazyLoadingComponents'
+import { useStore } from '~/common/CompositionApi/compositionApi'
+import { cardWrapper } from '~/common/Components/LazyLoadingComponents/lazyLoadingComponents'
 import { computed } from '@vue/composition-api'
-import { useMapGetters, useMapMutations } from '~/commons/Management/Auth/Auth'
+import { useMapGetters, useMapMutations } from '~/common/Management/Auth/Auth'
+import { generateToken } from '~/common/Token/token'
 
 export default {
   components: {
@@ -41,17 +42,34 @@ export default {
 
     const logTypeBtn = computed(() => isAuth.value ? 'otherWords.logout' : 'otherWords.login')
 
-    const navigateToAfterLogType = () => isAuth.value ? $router.push('/posts') : $router.push('/')
+    const navigateToAfterLogType = () => $router.push('/posts')
 
     const changeUserAuthState = () => mapMutations().setUserAuth(!isAuth.value)
 
+    const setUserTokenState = (token) => mapMutations().setUserToken(token)
+
+    const setUserTokenCookie = (token) => document.cookie = `token=${token}`
+
+    const setUserToken = (token) => {
+      setUserTokenState(token)
+      setUserTokenCookie(token)
+    }
+
+    const logType = () => isAuth.value ? logout() : login()
+
     const login = () => {
+      setUserToken(generateToken())
       changeUserAuthState()
       navigateToAfterLogType()
     }
 
+    const logout = () => {
+      setUserToken('')
+      changeUserAuthState(null)
+    }
+
     return {
-      login,
+      logType,
       logTypeBtn
     }
   }

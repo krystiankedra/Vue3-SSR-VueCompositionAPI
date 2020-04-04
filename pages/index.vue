@@ -4,7 +4,7 @@
 
 <script>
 import providerLayoutFactory from '~/mixins/Factories/ProviderLayoutFactory/providerLayoutFactory'
-import { login } from '~/commons/Components/LazyLoadingComponents/lazyLoadingComponents'
+import { login } from '~/common/Components/LazyLoadingComponents/lazyLoadingComponents'
 export default {
   components: {
     login

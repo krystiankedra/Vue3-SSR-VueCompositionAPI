@@ -1,5 +1,6 @@
 const state = ({
-  isAuth: true
+  isAuth: false,
+  token: null
 })
 
 export default state

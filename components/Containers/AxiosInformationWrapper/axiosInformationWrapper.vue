@@ -13,8 +13,8 @@
 </template>
 
 <script>
-import { useStore } from '~/commons/CompositionApi/compositionApi'
-import { useMapGetters, useMapMutations } from '~/commons/Management/Error/Error'
+import { useStore } from '~/common/CompositionApi/compositionApi'
+import { useMapGetters, useMapMutations } from '~/common/Management/Error/Error'
 import { computed } from '@vue/composition-api'
 
 export default {

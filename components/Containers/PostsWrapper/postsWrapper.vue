@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { pageWrapper, post } from '~/commons/Components/LazyLoadingComponents/lazyLoadingComponents'
+import { pageWrapper, post } from '~/common/Components/LazyLoadingComponents/lazyLoadingComponents'
 export default {
   components: {
     pageWrapper,

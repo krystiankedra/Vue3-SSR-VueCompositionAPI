@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { textWrapper } from '~/commons/Components/LazyLoadingComponents/lazyLoadingComponents'
+import { textWrapper } from '~/common/Components/LazyLoadingComponents/lazyLoadingComponents'
 import { computed } from '@vue/composition-api'
 export default {
   components: {

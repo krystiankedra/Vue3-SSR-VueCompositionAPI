@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { expansionPanelWrapper, postComment } from '~/commons/Components/LazyLoadingComponents/lazyLoadingComponents'
+import { expansionPanelWrapper, postComment } from '~/common/Components/LazyLoadingComponents/lazyLoadingComponents'
 export default {
   components: {
     expansionPanelWrapper,

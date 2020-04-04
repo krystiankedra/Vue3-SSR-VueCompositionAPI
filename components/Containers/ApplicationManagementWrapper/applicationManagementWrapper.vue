@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { vuetifyThemes, nuxtI18n } from '~/commons/Components/LazyLoadingComponents/lazyLoadingComponents'
+import { vuetifyThemes, nuxtI18n } from '~/common/Components/LazyLoadingComponents/lazyLoadingComponents'
 export default {
   components: {
     vuetifyThemes,

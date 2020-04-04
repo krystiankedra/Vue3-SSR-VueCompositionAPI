@@ -1,6 +1,6 @@
 import { SET_POSTS } from '~/store/posts/mutationTypes'
-import { getAuthorPostFromState } from '~/commons/Management/Posts/posts'
-import { fetchPosts, fetchCommentsWithAuthorForPosts } from '~/commons/Api/Posts/posts'
+import { getAuthorPostFromState } from '~/common/Management/Posts/posts'
+import { fetchPosts, fetchCommentsWithAuthorForPosts } from '~/common/Api/Posts/posts'
 
 export default {
   async getPosts({ rootState, commit }) {

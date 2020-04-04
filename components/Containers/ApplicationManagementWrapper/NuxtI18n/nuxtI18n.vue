@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { comboboxEmitter } from '~/commons/Components/LazyLoadingComponents/lazyLoadingComponents'
+import { comboboxEmitter } from '~/common/Components/LazyLoadingComponents/lazyLoadingComponents'
 import { computed, ref, onBeforeMount } from '@vue/composition-api'
 
 export default {

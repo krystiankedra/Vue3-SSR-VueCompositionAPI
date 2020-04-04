@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import auth from './auth'
 import errors from './errors'
 import posts from './posts'
+import root from './root'
 
 Vue.use(Vuex)
 
@@ -11,7 +12,8 @@ const createStore = () => {
     modules: {
       auth,
       errors,
-      posts
+      posts,
+      root
     }
   })
 }

@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { cardWrapper, textWrapper } from '~/commons/Components/LazyLoadingComponents/lazyLoadingComponents'
+import { cardWrapper, textWrapper } from '~/common/Components/LazyLoadingComponents/lazyLoadingComponents'
 import { computed } from '@vue/composition-api'
 
 export default {

@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { expansionPanelWrapper, textWrapper } from '~/commons/Components/LazyLoadingComponents/lazyLoadingComponents'
+import { expansionPanelWrapper, textWrapper } from '~/common/Components/LazyLoadingComponents/lazyLoadingComponents'
 import { computed } from '@vue/composition-api'
 export default {
   components: {

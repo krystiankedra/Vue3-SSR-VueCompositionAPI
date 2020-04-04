@@ -13,8 +13,8 @@
 
 
 <script>
-import { applicationManagementWrapper } from '~/commons/Components/LazyLoadingComponents/lazyLoadingComponents'
-import { provideStore } from '~/commons/CompositionApi/compositionApi'
+import { applicationManagementWrapper } from '~/common/Components/LazyLoadingComponents/lazyLoadingComponents'
+import { provideStore } from '~/common/CompositionApi/compositionApi'
 
 export default {
   components: {

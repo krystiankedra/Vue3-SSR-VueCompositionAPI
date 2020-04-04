@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { pageWrapper, todo } from '~/commons/Components/LazyLoadingComponents/lazyLoadingComponents'
+import { pageWrapper, todo } from '~/common/Components/LazyLoadingComponents/lazyLoadingComponents'
 
 export default {
   components: {

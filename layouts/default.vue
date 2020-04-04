@@ -18,8 +18,8 @@ import {
   applicationManagementWrapper,
   axiosInformationWrapper,
   navigationWrapper
-} from '~/commons/Components/LazyLoadingComponents/lazyLoadingComponents'
-import { provideStore } from '~/commons/CompositionApi/compositionApi'
+} from '~/common/Components/LazyLoadingComponents/lazyLoadingComponents'
+import { provideStore } from '~/common/CompositionApi/compositionApi'
 
 export default {
   components: {

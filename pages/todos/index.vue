@@ -3,8 +3,8 @@
 </template>
 
 <script>
-import { todosWrapper } from '~/commons/Components/LazyLoadingComponents/lazyLoadingComponents'
-import { fetchTodos } from '~/commons/Api/Todos/todos'
+import { todosWrapper } from '~/common/Components/LazyLoadingComponents/lazyLoadingComponents'
+import { fetchTodos } from '~/common/Api/Todos/todos'
 
 export default {
   components: {

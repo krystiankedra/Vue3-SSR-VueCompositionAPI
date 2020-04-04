@@ -28,7 +28,7 @@ import {
   textWrapper,
   expansionPanelWrapper,
   postAuthor
-} from '~/commons/Components/LazyLoadingComponents/lazyLoadingComponents'
+} from '~/common/Components/LazyLoadingComponents/lazyLoadingComponents'
 export default {
   components: {
     cardWrapper,
