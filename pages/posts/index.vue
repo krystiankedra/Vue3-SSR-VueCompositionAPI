@@ -5,7 +5,6 @@
 <script>
 import { useStore } from '~/common/CompositionApi/compositionApi'
 import { onMounted, onUnmounted, computed } from '@vue/composition-api'
-import providerLayoutFactory from '~/mixins/Factories/ProviderLayoutFactory/providerLayoutFactory'
 import guardValidateFactory from '~/mixins/Factories/GuardValidateFactory/guardValidateFactory'
 import { asyncPostsWrapper } from '~/common/Components/AsyncComponents/asyncComponents'
 import { useMapGetters, useMapMutations, useMapActions } from '~/common/Management/Posts/posts'
@@ -15,8 +14,7 @@ export default {
     asyncPostsWrapper
   },
   mixins: [
-    guardValidateFactory(),
-    providerLayoutFactory()
+    guardValidateFactory()
   ],
   setup() {
     const store = useStore()
