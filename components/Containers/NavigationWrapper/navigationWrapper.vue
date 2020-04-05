@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import { useStore } from '~/common/CompositionApi/compositionApi'
+import { useStore } from '~/common/StoreInjector/storeInjector'
 import { ref, computed } from '@vue/composition-api'
 import { useMapGetters } from '~/common/Management/Auth/Auth'
 import useToggle from '~/mixins/Factories/UseToggleFactory/useToggleFactory'

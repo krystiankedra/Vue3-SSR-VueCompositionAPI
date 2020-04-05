@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import { useStore } from '~/common/CompositionApi/compositionApi'
+import { useStore } from '~/common/StoreInjector/storeInjector'
 import { cardWrapper } from '~/common/Components/LazyLoadingComponents/lazyLoadingComponents'
 import { computed } from '@vue/composition-api'
 import { useMapGetters, useMapMutations } from '~/common/Management/Auth/Auth'

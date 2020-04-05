@@ -14,7 +14,7 @@
 
 <script>
 import { applicationManagementWrapper } from '~/common/Components/LazyLoadingComponents/lazyLoadingComponents'
-import { provideStore } from '~/common/CompositionApi/compositionApi'
+import { provideStore } from '~/common/StoreInjector/storeInjector'
 
 export default {
   components: {

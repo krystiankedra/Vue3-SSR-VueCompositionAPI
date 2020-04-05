@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { useStore } from '~/common/CompositionApi/compositionApi'
+import { useStore } from '~/common/StoreInjector/storeInjector'
 import { onMounted, onUnmounted, computed } from '@vue/composition-api'
 import { asyncPostsWrapper } from '~/common/Components/AsyncComponents/asyncComponents'
 import { useMapGetters, useMapMutations, useMapActions } from '~/common/Management/Posts/posts'
