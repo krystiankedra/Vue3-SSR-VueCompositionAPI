@@ -1,4 +1,4 @@
-import { splitCookies } from '../../Cookies/cookies'
+import { splitCookies } from '../../../common/Cookies/cookies'
 
 export default function(req, res, next) {
   if (req && req.headers && req.headers.cookie) {
