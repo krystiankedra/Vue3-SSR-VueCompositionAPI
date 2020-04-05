@@ -1,4 +1,4 @@
-import nuxti18nConfig from './modules/nuxt-i18n/nuxt-i18n-config'
+import nuxtI18nConfig from './modules/NuxtI18n/Config/nuxtI18nConfig'
 
 export default {
   mode: 'universal',
@@ -50,7 +50,7 @@ export default {
   */
   modules: [
     '@nuxtjs/axios',
-    nuxti18nConfig()
+    nuxtI18nConfig()
   ],
   /*
   ** Build configuration

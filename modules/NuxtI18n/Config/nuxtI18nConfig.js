@@ -1,5 +1,5 @@
-import en from './locales/en'
-import pl from './locales/pl'
+import en from '../Locales/en'
+import pl from '../Locales/pl'
 
 export default () => ([
   'nuxt-i18n', {
