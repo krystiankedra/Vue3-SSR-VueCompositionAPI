@@ -10,6 +10,7 @@ export default {
   components: {
     todosWrapper
   },
+  middleware: ['Client/Auth/auth'],
   async asyncData({ app: { $api } }) {
     const todos = await fetchTodos({ $api })
 

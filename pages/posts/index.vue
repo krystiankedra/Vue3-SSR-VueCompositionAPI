@@ -12,6 +12,7 @@ export default {
   components: {
     asyncPostsWrapper
   },
+  middleware: ['Client/Auth/auth'],
   setup() {
     const store = useStore()
     const mapGetters = () => useMapGetters({ getters: store.getters })

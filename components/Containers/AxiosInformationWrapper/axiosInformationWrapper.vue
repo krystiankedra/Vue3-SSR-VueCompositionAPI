@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { useStore } from '~/common/CompositionApi/compositionApi'
+import { useStore } from '~/common/StoreInjector/storeInjector'
 import { useMapGetters, useMapMutations } from '~/common/Management/Error/Error'
 import { computed } from '@vue/composition-api'
 
