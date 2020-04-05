@@ -3,16 +3,18 @@
     <v-navigation-drawer v-model="drawer" app :clipped="$vuetify.breakpoint.lgAndUp">
       <v-list>
         <v-list-item v-for="(route, idx) in routes" :key="idx" link @click="$router.push(route.to)">
-          <v-list-item-action>
-            <v-icon>
-              {{ route.icon }}
-            </v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title>
-              {{ $t(route.name) }}
-            </v-list-item-title>
-          </v-list-item-content>
+          <template v-if="route.hasPermissions">
+            <v-list-item-action>
+              <v-icon>
+                {{ route.icon }}
+              </v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>
+                {{ $t(route.name) }}
+              </v-list-item-title>
+            </v-list-item-content>
+          </template>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
@@ -26,17 +28,24 @@
 </template>
 
 <script>
+import { useStore } from '~/common/CompositionApi/compositionApi'
 import { ref, computed } from '@vue/composition-api'
+import { useMapGetters } from '~/common/Management/Auth/Auth'
 import useToggle from '~/mixins/Factories/UseToggleFactory/useToggleFactory'
 
 export default {
   setup() {
+    const store = useStore()
+    const mapGetters = () => useMapGetters({ getters: store.getters })
+
     const { show: drawer, toggle: toggleDrawer } = useToggle()
 
+    const hasPermissions = computed(() => mapGetters().isAuth())
+
     const routes = computed(() => ([
-      { name: 'navigationWords.homepage', to: '/', icon: 'mdi-home' },
-      { name: 'navigationWords.posts', to: '/posts', icon: 'mdi-widgets' },
-      { name: 'navigationWords.todos', to: '/todos', icon: 'mdi-dropbox' }
+      { name: 'navigationWords.homepage', to: '/', icon: 'mdi-home', hasPermissions: true },
+      { name: 'navigationWords.posts', to: '/posts', icon: 'mdi-widgets', hasPermissions: hasPermissions.value },
+      { name: 'navigationWords.todos', to: '/todos', icon: 'mdi-dropbox', hasPermissions: hasPermissions.value }
     ]))
 
     return {
