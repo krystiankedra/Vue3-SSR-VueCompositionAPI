@@ -1,7 +1,7 @@
 {
-  "name": "pwa-vue3-vue-composition-api",
+  "name": "pwa-vue3-ssr-vue-composition-api",
   "version": "1.0.0",
-  "description": "Progressive Web App Vue3 VueCompositionAPI",
+  "description": "Progressive Web App Vue3 SSR VueCompositionAPI",
   "author": "KrystianKedra",
   "private": true,
   "scripts": {
