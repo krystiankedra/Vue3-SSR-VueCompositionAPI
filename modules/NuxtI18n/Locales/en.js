@@ -2,7 +2,8 @@ export default {
   navigationWords: {
     homepage: 'Homepage',
     posts: 'List of posts',
-    todos: 'List of todos'
+    todos: 'List of todos',
+    users: 'List of users'
   },
   errorWords: {
     errorNoDetected: 'Error no detected',
@@ -55,5 +56,8 @@ export default {
       title: 'Title',
       completed: 'Completed?'
     }
+  },
+  users: {
+    pageTitle: 'List of Users'
   }
 }

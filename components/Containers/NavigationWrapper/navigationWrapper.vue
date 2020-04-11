@@ -45,7 +45,8 @@ export default {
     const routes = computed(() => ([
       { name: 'navigationWords.homepage', to: '/', icon: 'mdi-home', hasPermissions: true },
       { name: 'navigationWords.posts', to: '/posts', icon: 'mdi-widgets', hasPermissions: hasPermissions.value },
-      { name: 'navigationWords.todos', to: '/todos', icon: 'mdi-dropbox', hasPermissions: hasPermissions.value }
+      { name: 'navigationWords.todos', to: '/todos', icon: 'mdi-dropbox', hasPermissions: hasPermissions.value },
+      { name: 'navigationWords.users', to: '/users', icon: 'mdi-dropbox', hasPermissions: hasPermissions.value }
     ]))
 
     return {

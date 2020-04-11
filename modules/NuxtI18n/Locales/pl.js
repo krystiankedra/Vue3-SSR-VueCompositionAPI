@@ -2,7 +2,8 @@ export default {
   navigationWords: {
     homepage: 'Strona główna',
     posts: 'Lista postów',
-    todos: 'List Zadań'
+    todos: 'Lista Zadań',
+    users: 'Lista użytkowników'
   },
   errorWords: {
     errorNoDetected: 'Nie zidentyfikowano błędu',
@@ -55,5 +56,8 @@ export default {
       title: 'Tytuł',
       completed: 'Ukończono?'
     }
+  },
+  users: {
+    pageTitle: 'Lista użytkowników'
   }
 }

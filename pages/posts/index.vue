@@ -7,12 +7,16 @@ import { useStore } from '~/common/StoreInjector/storeInjector'
 import { onMounted, onUnmounted, computed } from '@vue/composition-api'
 import { asyncPostsWrapper } from '~/common/Components/AsyncComponents/asyncComponents'
 import { useMapGetters, useMapMutations, useMapActions } from '~/common/Management/Posts/posts'
+import layoutProviderFactory from '~/mixins/Factories/LayoutProviderFactory/layoutProviderFactory'
 
 export default {
   components: {
     asyncPostsWrapper
   },
   middleware: ['Client/Auth/auth'],
+  mixins: [
+    layoutProviderFactory()
+  ],
   setup() {
     const store = useStore()
     const mapGetters = () => useMapGetters({ getters: store.getters })

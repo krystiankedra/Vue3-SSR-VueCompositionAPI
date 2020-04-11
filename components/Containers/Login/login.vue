@@ -33,7 +33,13 @@ export default {
   components: {
     cardWrapper
   },
-  setup(_, { root: { $router } }) {
+  props: {
+    setLayout: {
+      type: Function,
+      default: () => null
+    }
+  },
+  setup({ setLayout }, { root: { $router } }) {
     const store = useStore()
     const mapGetters = () => useMapGetters({ getters: store.getters })
     const mapMutations = () => useMapMutations({ commit: store.commit })
@@ -61,11 +67,13 @@ export default {
       setUserToken(generateToken())
       changeUserAuthState()
       navigateToAfterLogType()
+      setLayout()
     }
 
     const logout = () => {
       setUserToken('')
       changeUserAuthState(null)
+      setLayout()
     }
 
     return {

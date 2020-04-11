@@ -12,6 +12,7 @@ export const navigationWrapper = () => import('~/components/Containers/Navigatio
 export const login = () => import('~/components/Containers/Login/login')
 export const todosWrapper = () => import('~/components/Containers/TodosWrapper/todosWrapper')
 export const todo = () => import('~/components/Containers/TodosWrapper/Todo/todo')
+export const usersWrapper = () => import('~/components/Containers/UsersWrapper/usersWrapper')
 
 // Presentionals
 export const cardWrapper = () => import('~/components/Presentionals/CardWrapper/cardWrapper')
