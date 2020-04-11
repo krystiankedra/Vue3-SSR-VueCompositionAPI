@@ -10,6 +10,8 @@
 
 #### IoC Pattern - Implemented in /users page.
 
-#### Download from api using Async Generators.
+#### /posts Download from api using Async Generators.
+
+#### /todos Download from api on SSR
 
 #### How use PWA ? Go to nuxt.config.js and uncomment inside plugin: @plugins/serviceWorker.client'. I have problem to understand how merge SSR with ServiceWorker.
