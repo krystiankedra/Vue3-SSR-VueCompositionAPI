@@ -73,7 +73,8 @@ export default {
 
   serverMiddleware: [
     { path: '/posts', handler: '~/middleware/Server/Auth/auth.js' },
-    { path: '/todos', handler: '~/middleware/Server/Auth/auth.js' }
+    { path: '/todos', handler: '~/middleware/Server/Auth/auth.js' },
+    { path: '/users', handler: '~/middleware/Server/Auth/auth.js' }
   ]
 
 }

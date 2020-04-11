@@ -11,6 +11,7 @@ export default {
   components: {
     usersWrapper
   },
+  middleware: ['Client/Auth/auth'],
   mixins: [
     layoutProviderFactory()
   ],
