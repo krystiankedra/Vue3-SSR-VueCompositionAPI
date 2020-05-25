@@ -37,7 +37,6 @@ export default {
   plugins: [
     '@plugins/axios',
     '@plugins/compositionApi.client',
-    // '@plugins/serviceWorker.client',
     '@plugins/vuetify.client'
   ],
   /*
