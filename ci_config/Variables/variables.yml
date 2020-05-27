@@ -3,4 +3,4 @@ variables:
   STAGING_ENV_NAME: staging
   PRODUCTION_DOMAIN: vuedynamiccolorandlanguagechanger.surge.sh
   PRODUCTION_ENV_NAME: production
-  PROJECT_TITLE: pwa-vue3-vue-composition-api
+  PROJECT_TITLE: vue3-vue-composition-api

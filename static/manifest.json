@@ -1,6 +1,6 @@
 {
-  "name": "Progressive Web App Vue3_VueCompositionAPI",
-  "short_name": "PWA Vue3_VueCompositionAPI",
+  "name": "Vue3_VueCompositionAPI",
+  "short_name": "Vue3_VueCompositionAPI",
   "start_url": "http://localhost:3000/",
   "display": "standalone",
   "theme_color": "#5FAAE5",
