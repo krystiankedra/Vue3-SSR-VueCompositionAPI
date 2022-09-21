@@ -19,7 +19,7 @@
     "nuxt-i18n": "^6.5.0",
     "url-loader": "^3.0.0",
     "uuidv4": "^6.0.7",
-    "vuetify": "^2.2.4"
+    "vuetify": "^2.6.10"
   },
   "devDependencies": {}
 }
