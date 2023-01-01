@@ -14,10 +14,10 @@
     "@mdi/font": "^4.7.95",
     "@nuxtjs/axios": "^5.9.5",
     "@vue/composition-api": "^0.5.0",
-    "file-loader": "^5.0.2",
-    "nuxt": "^2.11.0",
+    "file-loader": "^6.2.0",
+    "nuxt": "^3.0.0",
     "nuxt-i18n": "^6.5.0",
-    "url-loader": "^3.0.0",
+    "url-loader": "^4.1.1",
     "uuidv4": "^6.0.7",
     "vuetify": "^2.2.4"
   },
